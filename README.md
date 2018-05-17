@@ -4,18 +4,25 @@ This is a simple demo for how to connect to a Postgres database from a python fl
 
 ## Running
 
-First fork the repo then do a `git clone`.
-
-    git clone https://github.com/<yournamehere>/docker-flask-postgres
-
 You should also have [docker](https://docs.docker.com/install/). If you're on linux, you probably also want docker-compose. Last I checked (over a year ago) it did not come with docker by default. For Mac and Windows you get it with the default installation.
 
 Once you have all of that, you should be good. No need to install [Postgres](https://www.postgresql.org/) or even Python.
 
 ```
-docker-compose up --build -d   # Run the container.
+sudo docker-compose build --no-cache   # Run the container.
 
 docker-compose down   # Stop and remove everything.
+
+
+sudo docker-compose run web db init
+
+sudo docker-compose run web db migrate -m "initial migration"
+
+sudo docker-compose run web runstart
+
+sudo docker inspect <id_container> | grep "IPAddress"
+
+http://<IPAddress>:5000/
 
 # Add your code to the /app/ directory.
 # At the moment, you have to do a fig up/down after each change.
@@ -62,3 +69,4 @@ psql -h localhost -p 5432 postgres
 sudo docker rm -v flaskblog_db_1
 
 sudo docker-compose up -d --force-recreate
+
