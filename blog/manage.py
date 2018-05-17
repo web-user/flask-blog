@@ -53,18 +53,6 @@ manager.add_command("shell", Shell(make_context=make_shell_context))
 manager.add_command('db', MigrateCommand)
 
 
-class Students(db.Model):
-    __tablename__ = 'students'
-    id = db.Column('student_id', db.Integer, primary_key=True)
-    name = db.Column(db.String(100))
-    city = db.Column(db.String(50))
-    addr = db.Column(db.String(200))
-
-    def __init__(self, name, city, addr):
-        self.name = name
-        self.city = city
-        self.addr = addr
-
 class User(UserMixin, db.Model):
     __tablename__ = 'users'
     id = db.Column(Integer, primary_key=True)
@@ -89,20 +77,7 @@ def database_initialization_sequence():
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    if request.method == 'POST':
-        if not request.form['name'] or not request.form['city'] or not request.form['addr']:
-            flash('Please enter all the fields', 'error')
-        else:
-            student = Students(
-                    request.form['name'],
-                    request.form['city'],
-                    request.form['addr'])
-
-            db.session.add(student)
-            db.session.commit()
-            flash('Record was succesfully added')
-            return redirect(url_for('home'))
-    return render_template('show_all.html', title='Home', students=Students.query.all())
+    return render_template('show_all.html', title='Home')
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():

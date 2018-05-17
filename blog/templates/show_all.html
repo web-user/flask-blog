@@ -181,49 +181,6 @@
               <a href="mailto:your-email@your-domain.com">feedback@startbootstrap.com</a>
             </p>
 
-  <h3>
-      <a href="#">Example</a>
-  </h3>
-
-
-  <form action="{{ request.path }}" method="post">
-      Name:<br>
-      <input type="text" name="name"><br>
-      City:<br>
-      <input type="text" name="city"><br>
-      Address:<br>
-      <input type="text" name="addr"><br>
-      <input type="submit" value="Submit">
-  </form>
-
-<div class="container">
-  {% for message in get_flashed_messages() %}
-    <div class="alert alert-warning">
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-      {{ message }}
-    </div>
-  {% endfor %}
-</div>
-
-  <table>
-      <thead>
-    <tr>
-        <th>Name</th>
-        <th>City</th>
-        <th>Address</th>
-    </tr>
-      </thead>
-
-      <tbody>
-      {% for student in students %}
-    <tr>
-        <td>{{ student.name }}</td>
-        <td>{{ student.city }}</td>
-        <td>{{ student.addr }}</td>
-    </tr>
-      {% endfor %}
-      </tbody>
-  </table>
             
           </div>
         </div>
