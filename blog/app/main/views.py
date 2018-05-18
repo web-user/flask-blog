@@ -58,6 +58,12 @@ def edit(id):
     return render_template('edit_post.html', post = post )
 
 
+@main.route('/post/<int:id>', methods=['GET', 'POST'])
+def post(id):
+    post = Post.query.get_or_404(id)
+    return render_template('post.html', post=post)
+
+
 @main.route('/logout')
 @login_required
 def logout():

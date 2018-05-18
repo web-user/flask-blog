@@ -84,7 +84,9 @@
                       <tbody>
                         {% for post in posts %}
                           <tr>
-                              <td>{{post.title}}</td>
+                              <td>
+                              <a class="" href="{{ url_for('.post', id=post.id) }}">{{post.title}}</a>
+                              </td>
                               <td>{{post.body}}</td>
                               <td>
                                     {% if current_user.is_authenticated %}

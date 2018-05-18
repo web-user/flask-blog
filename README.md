@@ -26,7 +26,9 @@ sudo docker-compose run web db migrate -m "initial migration"
 
 ## How it works
 
-There are two Dockerfiles. One is the base Dockerfile that has Python and Flask. I've separated that one out so you don't have to keep downloading Python and Flask over and over again. The second one is the application Dockerfile. This is the one that will get updated frequently as you make changes to your Flask app. I found this to be a faster, more convenient iteration cycle for when I was building it.
+First register
+Next Admin page add post
+
 
 The `docker-compose.yml` file tells Docker that you need your Flask container and a Postgres container.
 
