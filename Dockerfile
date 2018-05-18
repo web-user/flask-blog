@@ -3,8 +3,8 @@
 FROM python:3.6-alpine
 
 
-ADD requirements.txt ./app /home/app/
-WORKDIR /home/app/
+ADD requirements.txt ./blog /home/blog/
+WORKDIR /home/blog/
 
 RUN apk add --no-cache postgresql-dev gcc python3 python3-dev musl-dev && \
     python3 -m ensurepip && \
@@ -15,4 +15,5 @@ RUN apk add --no-cache postgresql-dev gcc python3 python3-dev musl-dev && \
 
 EXPOSE 5000
 
-ENTRYPOINT ["python3", "./app.py"]
+ENTRYPOINT ["python3", "./manage.py"]
+

@@ -11,6 +11,8 @@ Once you have all of that, you should be good. No need to install [Postgres](htt
 ```
 sudo docker-compose build --no-cache   # Run the container.
 
+sudo docker-compose up
+
 docker-compose down   # Stop and remove everything.
 
 
@@ -18,11 +20,6 @@ sudo docker-compose run web db init
 
 sudo docker-compose run web db migrate -m "initial migration"
 
-sudo docker-compose run web runstart
-
-sudo docker inspect <id_container> | grep "IPAddress"
-
-http://<IPAddress>:5000/
 
 ...
 
