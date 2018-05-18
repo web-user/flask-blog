@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <section >
+
+      <div class="container">
+
+        <div class="page-header">
+            Hi, Admin
+        </div>
+
+
+        <form id="PostForm" class="form form-register" method="POST" action="" role="form">
+            {{ form.hidden_tag() }}
+            {{ form.title(class_="form-control") }}<br>
+            {{ form.body(class_="form-control") }}<br>
+            <p>
+                 <button type="submit" class="btn btn-primary">Submit</button>
+            </p>
+        </form>
+
+      </div>
+
+
+    </section>
+
+
+
+{% endblock %}
