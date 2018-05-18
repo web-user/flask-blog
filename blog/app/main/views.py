@@ -64,6 +64,17 @@ def post(id):
     return render_template('post.html', post=post)
 
 
+@main.route('/delete/<int:id>', methods=['GET'])
+@login_required
+def delete(id):
+    post = Post.query.get_or_404(id)
+    if request.method == 'GET':
+        db.session.delete(post)
+        db.session.commit()
+        flash('The post has been delete.')
+        return redirect(url_for('main.home'))
+
+
 @main.route('/logout')
 @login_required
 def logout():

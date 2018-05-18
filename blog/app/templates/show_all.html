@@ -91,6 +91,7 @@
                               <td>
                                     {% if current_user.is_authenticated %}
                                           <a class="" href="{{ url_for('.edit', id=post.id) }}">Edit</a>
+                                          <a class="" href="{{ url_for('.delete', id=post.id) }}">Delete</a>
                                     {% endif %}
                               </td>
                           </tr>
